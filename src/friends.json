@@ -20,7 +20,7 @@
 				"description": "欢迎来到小源151官方网站！",
 				"avatar": "https://www.xiaoyuan151.com/favicon.png"
 			},
-            {
+			{
 				"name": "LiyaoUniversity",
 				"url": "https://liyao.edu.kg/",
 				"description": "一座普通，或者不普通的大学",
@@ -31,6 +31,12 @@
 				"url": "https://serinanya.cn/",
 				"description": "哇这个好可爱呀",
 				"avatar": "https://serinanya.cn/images/avatar-mahiro.webp"
+			},
+			{
+				"name": "晓雨杂记",
+				"url": "https://www.lihaoyu.cn",
+				"description": "也许我们会分别，但我们将永远不会忘记彼此",
+				"avatar": "https://blog-api.lihaoyu.cn/images/profile/avatar-128x.webp"
 			}
 		]
 	},
