@@ -1,0 +1,60 @@
+[
+	{
+		"title": "❤️Murasame's Friends",
+		"links": [
+			{
+				"name": "wyf9's Blog",
+				"url": "https://wyf9.top/",
+				"description": "什么都有的个人 blog?",
+				"avatar": "https://wyf9.top/favicon.png"
+			},
+			{
+				"name": "Neokoni's Blog",
+				"url": "https://blog.neokoni.ink",
+				"description": "Follow that star",
+				"avatar": "https://res.neokoni.ink/neokoni/svg/favicon.svg"
+			},
+			{
+				"name": "XiaoYuan151",
+				"url": "https://xiaoyuan151.com",
+				"description": "欢迎来到小源151官方网站！",
+				"avatar": "https://www.xiaoyuan151.com/favicon.png"
+			},
+            {
+				"name": "LiyaoUniversity",
+				"url": "https://liyao.edu.kg/",
+				"description": "一座普通，或者不普通的大学",
+				"avatar": "https://liyao.edu.kg/usr/uploads/2025/11/3917527771.bmp"
+			},
+			{
+				"name": "Serina 碎碎念",
+				"url": "https://serinanya.cn/",
+				"description": "哇这个好可爱呀",
+				"avatar": "https://serinanya.cn/images/avatar-mahiro.webp"
+			}
+		]
+	},
+	{
+		"title": "🤝Murasame's Workmates",
+		"links": [
+			{
+				"name": "猫窝",
+				"url": "https://ineko.cc",
+				"description": "一只会说话的咸鱼",
+				"avatar": "https://static.ineko.cc/images/avatar.png"
+			},
+			{
+				"name": "曲奇Onfree",
+				"url": "https://github.com/quqiOnfree",
+				"description": "为我提供了约4年的服务器，是我最感谢的人",
+				"avatar": "https://q.qlogo.cn/headimg_dl?dst_uin=2098332747&spec=640"
+			},
+			{
+				"name": "sth1220",
+				"url": "https://sthcraft.com",
+				"description": "SthCraft 幕后主使",
+				"avatar": "http://q.qlogo.cn/headimg_dl?dst_uin=780902406&spec=640"
+			}
+		]
+	}
+]
