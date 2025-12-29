@@ -36,6 +36,11 @@ export type SiteConfig = {
 	};
 
 	favicon: Favicon[];
+	preloader: {
+		enable: boolean;
+		text?: string; // 自定义显示文字，留空则使用网站标题
+		duration: number; // 动画持续时间（毫秒）
+	};
 };
 
 export type Favicon = {

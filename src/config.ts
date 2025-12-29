@@ -38,6 +38,11 @@ export const siteConfig: SiteConfig = {
 			sizes: "32x32", // （可选）favicon 的尺寸，仅在您有不同尺寸的 favicon 时设置
 		},
 	],
+	preloader: {
+		enable: true, // 启用页面加载遮罩
+		text: "Murasame's Blog", // 自定义显示文字，留空则使用网站标题
+		duration: 2500, // 遮罩显示时长（毫秒）
+	},
 };
 
 export const navBarConfig: NavBarConfig = {

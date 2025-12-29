@@ -151,6 +151,13 @@ const bannerOffset =
 	<body class=" min-h-screen transition " class:list={[{"lg:is-home": isHomePage, "enable-banner": enableBanner}]}
 		  data-overlayscrollbars-initialize
 	>
+		<!-- 加载遮罩 -->
+		{siteConfig.preloader.enable && (
+			<div class="preloader">
+				<h2 class="ml13">{siteConfig.preloader.text || siteConfig.title}</h2>
+			</div>
+		)}
+
 		<ConfigCarrier></ConfigCarrier>
 		<slot />
 
@@ -158,6 +165,105 @@ const bannerOffset =
 		<div id="page-height-extend" class="hidden h-[300vh]"></div>
 	</body>
 </html>
+
+<style is:global>
+	.preloader {
+		position: fixed;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		height: 100vh;
+		background-color: var(--page-bg);
+		z-index: 1100;
+		transition: opacity 0.3s ease-in-out;
+	}
+
+	.ml13 {
+		font-size: 3.2rem;
+		color: var(--primary);
+		letter-spacing: -1px;
+		font-weight: 500;
+		text-align: center;
+	}
+
+	.ml13 .word {
+		display: inline-flex;
+		flex-wrap: wrap;
+		white-space: nowrap;
+	}
+
+	.ml13 .letter {
+		display: inline-block;
+		line-height: 1em;
+		opacity: 0;
+		transform: translateY(20px);
+		filter: blur(5px);
+		transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.6s ease-out;
+	}
+</style>
+
+<script define:vars={{ preloaderDuration: siteConfig.preloader.duration }}>
+	function initPreloader() {
+		const textWrapper = document.querySelector('.ml13');
+		if (!textWrapper) return;
+
+		const words = textWrapper.textContent?.trim().split(' ') || [];
+		textWrapper.innerHTML = '';
+
+		words.forEach((word) => {
+			const wordSpan = document.createElement('span');
+			wordSpan.classList.add('word');
+			wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+			textWrapper.appendChild(wordSpan);
+			textWrapper.appendChild(document.createTextNode(' '));
+		});
+
+		function hidePreloader() {
+			const preloader = document.querySelector('.preloader');
+			if (preloader) {
+				preloader.style.opacity = '0';
+				setTimeout(() => {
+					preloader.style.display = 'none';
+				}, 300);
+			}
+		}
+
+		// 使用原生 CSS 动画
+		const letters = document.querySelectorAll('.ml13 .letter');
+		
+		// 淡入动画
+		letters.forEach((letter, i) => {
+			setTimeout(() => {
+				letter.style.opacity = '1';
+				letter.style.transform = 'translateY(0)';
+				letter.style.filter = 'blur(0px)';
+			}, 300 + i * 20);
+		});
+
+		// 使用配置的时长控制淡出时机
+		const fadeOutDelay = preloaderDuration * 0.6; // 60% 时开始淡出
+		setTimeout(() => {
+			letters.forEach((letter, i) => {
+				setTimeout(() => {
+					letter.style.opacity = '0';
+					letter.style.transform = 'translateY(-20px)';
+					letter.style.filter = 'blur(5px)';
+				}, i * 15);
+			});
+			
+			// 动画结束后隐藏遮罩
+			setTimeout(hidePreloader, 500);
+		}, fadeOutDelay);
+
+		// 页面加载完成后也隐藏（备用方案）
+		window.addEventListener('load', () => {
+			setTimeout(hidePreloader, preloaderDuration);
+		});
+	}
+
+	initPreloader();
+</script>
 
 <style is:global define:vars={{
 	bannerOffset,
