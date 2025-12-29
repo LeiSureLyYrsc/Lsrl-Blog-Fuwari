@@ -185,6 +185,11 @@ const bannerOffset =
 		letter-spacing: -1px;
 		font-weight: 500;
 		text-align: center;
+		opacity: 0;
+	}
+
+	.ml13.ready {
+		opacity: 1;
 	}
 
 	.ml13 .word {
@@ -197,7 +202,7 @@ const bannerOffset =
 		display: inline-block;
 		line-height: 1em;
 		opacity: 0;
-		transform: translateY(20px);
+		transform: translateY(25px);
 		filter: blur(5px);
 		transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.6s ease-out;
 	}
@@ -219,6 +224,9 @@ const bannerOffset =
 			textWrapper.appendChild(document.createTextNode(' '));
 		});
 
+		// 文字分割完成，显示容器
+		textWrapper.classList.add('ready');
+
 		function hidePreloader() {
 			const preloader = document.querySelector('.preloader');
 			if (preloader) {
@@ -229,32 +237,37 @@ const bannerOffset =
 			}
 		}
 
-		// 使用原生 CSS 动画
+		// 使用 requestAnimationFrame 确保动画流畅
 		const letters = document.querySelectorAll('.ml13 .letter');
 		
-		// 淡入动画
-		letters.forEach((letter, i) => {
-			setTimeout(() => {
-				letter.style.opacity = '1';
-				letter.style.transform = 'translateY(0)';
-				letter.style.filter = 'blur(0px)';
-			}, 300 + i * 20);
-		});
+		// 等待浏览器渲染完成后再开始动画
+		requestAnimationFrame(() => {
+			requestAnimationFrame(() => {
+				// 淡入动画 - 增加初始延迟确保稳定性
+				letters.forEach((letter, i) => {
+					setTimeout(() => {
+						letter.style.opacity = '1';
+						letter.style.transform = 'translateY(0)';
+						letter.style.filter = 'blur(0px)';
+					}, 500 + i * 30);
+				});
 
-		// 使用配置的时长控制淡出时机
-		const fadeOutDelay = preloaderDuration * 0.6; // 60% 时开始淡出
-		setTimeout(() => {
-			letters.forEach((letter, i) => {
+				// 使用配置的时长控制淡出时机
+				const fadeOutDelay = preloaderDuration * 0.6; // 60% 时开始淡出
 				setTimeout(() => {
-					letter.style.opacity = '0';
-					letter.style.transform = 'translateY(-20px)';
-					letter.style.filter = 'blur(5px)';
-				}, i * 15);
+					letters.forEach((letter, i) => {
+						setTimeout(() => {
+							letter.style.opacity = '0';
+							letter.style.transform = 'translateY(-50px)';
+							letter.style.filter = 'blur(5px)';
+						}, i * 15);
+					});
+					
+					// 动画结束后隐藏遮罩
+					setTimeout(hidePreloader, 500);
+				}, fadeOutDelay);
 			});
-			
-			// 动画结束后隐藏遮罩
-			setTimeout(hidePreloader, 500);
-		}, fadeOutDelay);
+		});
 
 		// 页面加载完成后也隐藏（备用方案）
 		window.addEventListener('load', () => {
@@ -262,7 +275,12 @@ const bannerOffset =
 		});
 	}
 
-	initPreloader();
+	// 确保 DOM 完全准备好
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initPreloader);
+	} else {
+		initPreloader();
+	}
 </script>
 
 <style is:global define:vars={{
