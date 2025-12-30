@@ -15,7 +15,7 @@ lang: 'zh_CN'
 
 ## 服务器安全性配置
 
-在配置 Swap 之前，对服务器登录的安全性进行升级。[Swap 配置文章传送门](/posts/configure-linuxserver-swap/)
+在配置 Swap 之前，对服务器登录的安全性进行升级。[Swap 配置文章传送门](/posts/configure-linuxserver/configure-linuxserver-swap/)
 
 ### 一.重置密码
 

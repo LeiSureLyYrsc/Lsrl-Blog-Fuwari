@@ -9,7 +9,7 @@ draft: false
 lang: 'zh_CN'
 ---
 
-书接上文: [Linux 服务器 SSH 配置免密登录](/posts/configure-linuxserver-sshkey/)
+书接上文: [Linux 服务器 SSH 配置免密登录](/posts/configure-linuxserver/configure-linuxserver-sshkey/)
 
 笔者在今天购买了一款阿里云日本地区 2H0.5G 的轻量应用服务器，系统选择的是 Debain12.10。鉴于 0.5G 的运行内存实属不够用，因此准备添加 SWAP。
 
