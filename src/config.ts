@@ -40,8 +40,8 @@ export const siteConfig: SiteConfig = {
 	],
 	preloader: {
 		enable: true, // 启用页面加载遮罩
-		text: "Ciallo～(∠・ω< )⌒★", // 自定义显示文字，留空则使用网站标题
-		duration: 2800, // 遮罩显示时长（毫秒）
+		text: "(∠・ω< )⌒★", // 自定义显示文字，留空则使用网站标题
+		duration: 2000, // 遮罩显示时长（毫秒）
 	},
 };
 
