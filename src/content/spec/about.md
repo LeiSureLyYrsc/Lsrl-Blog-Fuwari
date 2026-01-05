@@ -1,7 +1,7 @@
 # Ciallo～(∠・ω< )⌒★
 
 ## 自我介绍:
-你好，我叫**筱狗**，英文名为 **Murasame**(前身为 **LeiSureLy**)
+你好，我叫**筱狗**，英文名为 **Murasame** (前身为 **LeiSureLy**)
 
 因为喜欢 [**丛雨**](https://mzh.moegirl.org.cn/丛雨) (ムラサメ,Murasame)，因此更改英文名
 
@@ -13,7 +13,7 @@
 
 一位努力在互联网上留下属于自己痕迹的人
 
-### 出门在外，身份是自己给的
+### 给自己的身份
 - [Murasame-Dev.](https://github.com/Murasame-Dev) - 组织创始人(Owner)
 - [SiiWay](https://siiway.top) - 组织成员(Member)
 - [LittleSkin](https://littleskin.cn/) - 社区支持组划水成员
@@ -22,7 +22,7 @@
 
 ### 技术栈
 - Python (主要)
-- TypeScript (学习中)
+- TypeScript (学习中) ~~更应该叫做 Node.js?~~
 - Go (学习中)
 - *Rust* (准备学习)
 

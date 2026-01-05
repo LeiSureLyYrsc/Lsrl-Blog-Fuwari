@@ -5,6 +5,8 @@ import Markdown from "@components/misc/Markdown.astro";
 import I18nKey from "../i18n/i18nKey";
 import { i18n } from "../i18n/translation";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
+import DonateCard from "@components/misc/DonateCard.astro";
+import { donateList } from "@/donate";
 
 const donatePost = await getEntry("spec", "donate");
 
@@ -20,6 +22,28 @@ const { Content } = await render(donatePost);
             <Markdown class="mt-2">
                 <Content />
             </Markdown>
+            {donateList.length > 0 && (
+                <div class="mt-12">
+                    <center>
+                        <h2 class="text-3xl font-bold text-[var(--primary)] mb-6">
+                            💖 捐赠名单
+                            </h2>
+                        <h2 class="text-2xl font-bold mb-6">
+                            若有遗漏,请向
+                            <a href="https://github.com/Lsrl-Blog-Fuwari/Lsrl-Blog-Fuwari/blob/main/src/donate.json" class="link text-[var(--primary)]">
+                            donate.json</a> 提交 PR
+                            </h2>
+                    </center>
+                    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+                        {donateList.map((item) => (
+                            <DonateCard
+                                name={item.name}
+                                avatar={item.avatar}
+                            />
+                        ))}
+                    </div>
+                </div>
+            )}
         </div>
     </div>
 </MainGridLayout>

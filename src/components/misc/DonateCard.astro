@@ -1,0 +1,75 @@
+---
+import path from "node:path";
+import { Image } from "astro:assets";
+import { url } from "../../utils/url-utils";
+
+interface Props {
+  name: string;
+  avatar?: string;
+}
+
+const { name, avatar } = Astro.props;
+
+// 判断头像路径类型
+const isExternal = avatar?.startsWith("http://") || avatar?.startsWith("https://");
+const isPublic = avatar?.startsWith("/");
+const isLocal = avatar && !isExternal && !isPublic;
+
+// 处理本地图片
+let localImage;
+if (isLocal && avatar) {
+  const files = import.meta.glob<ImageMetadata>("../../**", {
+    import: "default",
+  });
+  const normalizedPath = path
+    .normalize(path.join("../../", avatar))
+    .replace(/\\/g, "/");
+
+  const file = files[normalizedPath];
+  if (file) {
+    localImage = await file();
+  } else {
+    console.error(
+      `\n[ERROR] Donate avatar not found: ${normalizedPath.replace("../../", "src/")}`,
+    );
+  }
+}
+
+// 获取头像 URL
+let avatarSrc = "";
+if (isExternal) {
+  avatarSrc = avatar || "";
+} else if (isPublic) {
+  avatarSrc = url(avatar || "");
+}
+---
+
+<div
+  class="flex flex-col items-center gap-2 p-2 transition-all duration-200 hover:scale-105"
+>
+  <div class="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[var(--primary)]/20 flex items-center justify-center flex-shrink-0 relative overflow-hidden">
+    {avatar && isLocal && localImage ? (
+      <Image
+        src={localImage}
+        alt={name}
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    ) : avatar && avatarSrc ? (
+      <img
+        src={avatarSrc}
+        alt={name}
+        class="w-full h-full object-cover"
+        loading="lazy"
+        onerror="this.style.display='none';"
+      />
+    ) : (
+        <div class="text-2xl">🎁</div>
+    )}
+  </div>
+  <div class="text-center min-w-0 w-full">
+    <div class="font-bold text-sm text-[var(--text-main)] truncate px-1">
+      {name}
+    </div>
+  </div>
+</div>
