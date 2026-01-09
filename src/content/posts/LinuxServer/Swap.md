@@ -4,7 +4,7 @@ published: 2025-12-29
 description: '终于配置好登录安全了!Swap 我要来攻击你了😋！'
 image: ''
 tags: [云服务器, Linux, Swap, 交换文件]
-category: '服务器'
+category: 'Linux'
 draft: false 
 lang: 'zh_CN'
 ---

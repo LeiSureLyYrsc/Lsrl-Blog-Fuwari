@@ -4,7 +4,7 @@ published: 2026-01-09
 description: '我在 SthCraft 的服务器规划的点点滴滴,充满了汗水与眼泪😢'
 image: ''
 tags: [MineCraft, 我的世界, 服务器]
-category: '服务器'
+category: 'SthCraft'
 draft: false 
 lang: 'zh_CN'
 ---

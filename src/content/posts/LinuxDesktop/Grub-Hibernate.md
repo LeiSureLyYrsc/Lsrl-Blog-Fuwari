@@ -4,7 +4,7 @@ published: 2026-01-10
 description: ''
 image: ''
 tags: [休眠, Grub]
-category: 'Linux 桌面'
+category: 'Linux'
 draft: false 
 lang: ''
 ---

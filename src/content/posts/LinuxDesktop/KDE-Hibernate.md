@@ -4,7 +4,7 @@ published: 2026-01-10
 description: ''
 image: ''
 tags: [Linux 桌面, KDE, 休眠]
-category: 'Linux 桌面'
+category: 'Linux'
 draft: false 
 lang: 'zh_CN'
 ---

@@ -5,7 +5,7 @@ published: 2025-12-29
 description: ''
 image: ''
 tags: [云服务器, SSH, 服务器安全, 秘钥, ssh-key, Linux]
-category: '服务器'
+category: 'Linux'
 draft: false 
 lang: 'zh_CN'
 
