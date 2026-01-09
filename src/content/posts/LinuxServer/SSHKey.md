@@ -1,6 +1,6 @@
 ---
 
-title: 为 Linux 服务器配置免密登录
+title: 为 Linux 配置免密登录
 published: 2025-12-29
 description: ''
 image: ''
@@ -15,9 +15,9 @@ lang: 'zh_CN'
 
 ## 服务器安全性配置
 
-在配置 Swap 之前，对服务器登录的安全性进行升级。[Swap 配置文章传送门](/posts/configure-linuxserver/configure-linuxserver-swap/)
+在配置 Swap 之前，对服务器登录的安全性进行升级。[Swap 配置文章传送门](/posts/linuxserver/swap/)
 
-### 一.重置密码
+## 一.重置密码
 
 首先，刚购买的服务器需要在阿里云控制台进行 重置密码 的操作，若使用的是阿里云预置镜像，则可以直接进行在线修改
 
@@ -25,9 +25,9 @@ lang: 'zh_CN'
 
 点击确定重置后，等待任务完成，完成后即可使用 SSH 客户端登录。
 
-### 二.配置 SSH 秘钥登录
+## 二.配置 SSH 秘钥登录
 
-首先，在任意终端上输入以下指令:
+### 首先，在任意终端上输入以下指令:
 
 ```bash
 ssh-keygen -t ed25519 -f my_ssh_key -C "contact@example.com"
@@ -49,7 +49,7 @@ The key fingerprint is:SHA256:
 (以下省略N个字符......)
 ```
 
-回到日本服务器的 SSH 客户端，输入以下内容:
+### 回到日本服务器的 SSH 客户端，输入以下内容:
 
 > [!WARNING]
 > 在进入编辑器必须先输入一个 `a` 字符进入 `Insert(编辑)` 模式，这样才能正确粘贴内容，粘贴完后键入 `Esc` 键才能进行保存退出 (`!wq`) 的操作！
@@ -63,16 +63,16 @@ vim ~/.ssh/authorized_keys
 
 如此，你就完成了秘钥配置过程，现在你可以在 SSH 客户端上通过秘钥登录服务器了！
 
-### 三.禁用密码登录
+## 三.禁用密码登录
 
-首先，在 SSH 终端上输入以下指令:
+### 首先，在 SSH 终端上输入以下指令:
 
 ```bash
 # 编辑 SSH 服务器的配置文件
 vim /etc/ssh/sshd_config
 ```
 
-配置以下内容:
+### 配置以下内容:
 
 ```bash
 # 禁用密码登录
@@ -81,7 +81,7 @@ PasswordAuthentication no
 
 配置完后输入 `:wq` 保存并退出
 
-最后输入指令:
+### 最后输入指令:
 
 ```bash
 # 重启 ssh 服务器
