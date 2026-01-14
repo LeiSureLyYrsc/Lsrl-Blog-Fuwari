@@ -39,9 +39,10 @@ export const siteConfig: SiteConfig = {
 		},
 	],
 	preloader: {
-		enable: true, // 启用页面加载遮罩
-		text: "(∠・ω< )⌒★", // 自定义显示文字，留空则使用网站标题
-		duration: 2000, // 遮罩显示时长（毫秒）
+		enable: true,
+		text: "(∠・ω< )⌒★",
+		duration: 2000,
+		fixed: false,
 	},
 };
 

@@ -64,6 +64,14 @@ const {
 
 <script define:vars={{ preloaderDuration: duration }}>
 	function initPreloader() {
+		const preloader = document.querySelector('.preloader');
+		if (localStorage.getItem('disable-preloader') === 'true') {
+			if (preloader) {
+				preloader.style.display = 'none';
+			}
+			return;
+		}
+
 		const textWrapper = document.querySelector('.ml13');
 		if (!textWrapper) return;
 
