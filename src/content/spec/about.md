@@ -18,15 +18,19 @@
 - [QQOF](https://play.mcmod.cn/sv20188542.html), [RainCraft](https://mc.ineko.cc/) - Minecraft 服务器管理者
 
 ## 技术栈
+#### 已会
 - Python (主要)
-- TypeScript (学习中) ~~更应该叫做 Node.js?~~
-- Go (学习中)
-- *Rust* (准备学习)
+#### 计划学习
+- Java/Kotlin (正在学习)
+- TypeScript ~~更应该叫做 Node.js?~~
+- Go
+- *Rust* (我觉得可能应该或许会学吧)
 
 ## 我目前活跃的网络游戏
 - 原神 (UID: `216412281`)
 - 崩坏·星穹铁道 (UID: `100107556`)
 - 绝区零 (UID: `11986668`)
+- 明日方舟:终末地 (UID: `1356908285`)
 - 三角洲行动 (菜B)
 - 初音未来:缤纷舞台 (国服)
 - Minecraft (我的世界)

@@ -10,7 +10,7 @@ import { LinkPreset } from "./types/config";
 export const siteConfig: SiteConfig = {
 	title: "Murasame's Blog",
 	subtitle:
-		"我已经下了决心，要与深爱的少女一起在这片土地生活下去。我对此无比自豪。",
+		"Ciallo(∠・ω< )⌒★",
 	lang: "zh_CN", // 语言代码，例如 'en', 'zh_CN', 'ja' 等。
 	themeColor: {
 		hue: 155, // 主题颜色的默认色调，范围从 0 到 360。例如：红色：0，青色：200，蓝绿色：250，粉色：345
