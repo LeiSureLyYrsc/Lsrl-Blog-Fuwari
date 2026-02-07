@@ -1,6 +1,6 @@
 ---
 title: 使用 Docker 部署 Authentik 统一认证服务 - 其一
-published: 2026-02-06
+published: 2026-02-05
 description: ''
 image: ''
 tags: [SSO, Authentik]
@@ -23,6 +23,7 @@ lang: 'zh_CN'
 ### 系列总览
 - 其一 - 使用 `Docker` 部署 `Authentik` 统一认证服务 - [点我这里跳转](/posts/authentik/authentik-docker-setup-1/)
 - 其二 - 为 `Authentik` 配置 `OIDC` 认证服务 - [点我这里跳转](/posts/authentik/authentik-oidc-2/)
+- 其三 - 为 `Authentik` 配置 `OIDC` 认证服务 - [点我这里跳转](/posts/authentik/authentik-ldap-3/)
 
 ## 准备材料
 - 一台装有 `Docker` 的 `Linux 发行版` 服务器
