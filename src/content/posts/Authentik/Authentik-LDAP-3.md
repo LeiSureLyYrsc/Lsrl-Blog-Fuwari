@@ -1,5 +1,5 @@
 ---
-title: 为 Authentik 配置 OIDC 认证服务 - 其三
+title: 为 Authentik 配置 LDAP 认证服务 - 其三
 published: 2026-02-07
 description: ''
 image: ''
