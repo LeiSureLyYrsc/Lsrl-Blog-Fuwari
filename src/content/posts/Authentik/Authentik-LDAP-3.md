@@ -166,3 +166,6 @@ dsquery * -s <LDAP outpost IP address> -u "cn=ldapservice,ou=users,DC=ldap,DC=go
 ```
 
 出现一大串一大排输出就证明你的配置成了！🚀
+
+## 参考文献
+- https://docs.goauthentik.io/add-secure-apps/providers/ldap/create-ldap-provider/ - `Authentik` 官方文档: 创建一个 `LDAP` 认证服务
