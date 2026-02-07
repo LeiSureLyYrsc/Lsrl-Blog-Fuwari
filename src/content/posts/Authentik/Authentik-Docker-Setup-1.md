@@ -11,7 +11,18 @@ lang: 'zh_CN'
 
 ## 前情提要
 主播有一些服务想分享给我的朋友，但是让朋友**给每个服务都注册且设置密码**非常麻烦   
-虽然我目前也在使用朋友提供的 `SSO(单点认证)` 服务，但是他的服务面向于自己人，因此决定自建
+虽然我目前也在使用朋友提供的 `SSO(单点认证)` 服务，但是他的服务面向于自己人，因此决定自建   
+朋友目前用的是 `Authentik`，因此我也使用
+
+> [!TIP]
+> `Authentik` 是什么?   
+> `Authentik` 是一个现代化的开源身份管理和身份验证平台，专为企业和个人提供身份验证、授权和访问管理解决方案
+
+::github{repo="goauthentik/authentik"}
+
+### 系列总览
+- 其一 - 使用 `Docker` 部署 `Authentik` 统一认证服务 - [点我这里跳转](/posts/authentik/authentik-docker-setup-1/)
+- 其二 - 为 `Authentik` 配置 `OIDC` 认证服务 - [点我这里跳转](/posts/authentik/authentik-oidc-2/)
 
 ## 准备材料
 - 一台装有 `Docker` 的 `Linux 发行版` 服务器

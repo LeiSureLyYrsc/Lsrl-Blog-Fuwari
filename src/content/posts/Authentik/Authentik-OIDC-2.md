@@ -10,9 +10,13 @@ lang: 'zh_CN'
 ---
 
 ## 前情提要
-在上一篇文章: [使用 Docker 部署 Authentik 统一认证服务 - 其一]() 中你已成功使用 `Docker` 部署好了一个 `Authentik` 实例并成功进行了初始化，哦咩得多(恭喜你)！🎉   
+在上一篇文章: `使用 Docker 部署 Authentik 统一认证服务 - 其一` 中你已成功使用 `Docker` 部署好了一个 `Authentik` 实例并成功进行了初始化，哦咩得多(恭喜你)！🎉   
 
 那么呢 ~~~ 此文章就讲述该如何在 `Authentik` 里面配置 `OIDC` 认证服务！
+
+### 系列总览
+- 其一 - 使用 `Docker` 部署 `Authentik` 统一认证服务 - [点我这里跳转](/posts/authentik/authentik-docker-setup-1/)
+- 其二 - 为 `Authentik` 配置 `OIDC` 认证服务 - [点我这里跳转](/posts/authentik/authentik-oidc-2/)
 
 > [!TIP]
 > `OIDC` 是什么？   
