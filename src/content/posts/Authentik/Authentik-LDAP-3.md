@@ -10,7 +10,7 @@ lang: 'zh_CN'
 ---
 
 ## 前情提要
-除了 `OIDC` 以外，也有其他服务会使用上 `LDAP` 这个服务 (比如 `Jellyfin`,`LDAP`)
+除了 `OIDC` 以外，也有其他服务会使用上 `LDAP` 这个服务 (比如 `Jellyfin`,`LDAP`)   
 `Jellyfin` 的 `OIDC` 插件只有**官方客户端和网页**才能正常登录，若使用没有适配的第三方客户端会大事不妙😰
 
 因此，此文章就讲述该如何在 `Authentik` 里面配置 `LDAP` 认证服务！
