@@ -42,8 +42,79 @@ lang: 'zh_CN'
 wget https://docs.goauthentik.io/docker-compose.yml
 ```
 此命令会帮助你下载官方的编排文件   
-**但请注意:始终建议你的编排文件保存在一个单独的文件夹里面**   
-比如 `mkdir Authentik && cd Authentik` 然后下载编排文件
+
+> [!WARNING]
+> **始终建议你的编排文件保存在一个单独的文件夹里面**   
+> 比如 `mkdir Authentik && cd Authentik` 然后下载编排文件
+
+如果呢 ~ 不方便下载的话，以下是 `Authentik` 的编排原文！ `2026-2-8`
+```bash
+services:
+  postgresql:
+    env_file:
+    - .env
+    environment:
+      POSTGRES_DB: ${PG_DB:-authentik}
+      POSTGRES_PASSWORD: ${PG_PASS:?database password required}
+      POSTGRES_USER: ${PG_USER:-authentik}
+    healthcheck:
+      interval: 30s
+      retries: 5
+      start_period: 20s
+      test:
+      - CMD-SHELL
+      - pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}
+      timeout: 5s
+    image: docker.io/library/postgres:16-alpine
+    restart: unless-stopped
+    volumes:
+    - database:/var/lib/postgresql/data
+  server:
+    command: server
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    env_file:
+    - .env
+    environment:
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.12.3}
+    ports:
+    - ${COMPOSE_PORT_HTTP:-9000}:9000
+    - ${COMPOSE_PORT_HTTPS:-9443}:9443
+    restart: unless-stopped
+    volumes:
+    - ./data:/data
+    - ./custom-templates:/templates
+  worker:
+    command: worker
+    depends_on:
+      postgresql:
+        condition: service_healthy
+    env_file:
+    - .env
+    environment:
+      AUTHENTIK_POSTGRESQL__HOST: postgresql
+      AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
+      AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
+      AUTHENTIK_POSTGRESQL__USER: ${PG_USER:-authentik}
+      AUTHENTIK_SECRET_KEY: ${AUTHENTIK_SECRET_KEY:?secret key required}
+    image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2025.12.3}
+    restart: unless-stopped
+    user: root
+    volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - ./data:/data
+    - ./certs:/certs
+    - ./custom-templates:/templates
+volumes:
+  database:
+    driver: local
+```
 
 ### 二.🗒 在当前目录下生成配置文件
 因为这是第一次安装，所以你需要生成两个东西:`密码` 和 `密钥`,请使用终端执行以下命令
